@@ -20,7 +20,7 @@
 
 1. Download or clone this repository:
     ```bash
-    git clone https://github.com/your-username/elementscope.git
+    git clone https://github.com/burakguzelcomtr/element-scope.git
     ```
 
 2. Open Chrome and go to `chrome://extensions/`
@@ -60,7 +60,7 @@ This project is licensed under the [MIT License](LICENSE).
 ## 👨‍💻 Author
 
 Developed by **Burak Güzel**  
-🔗 [Website](https://your-website.com) • [GitHub](https://github.com/your-username)
+🔗 [Website](https://burakguzel.com) • [GitHub](https://github.com/burakguzelcomtr)
 
 ---
 
