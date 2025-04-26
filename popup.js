@@ -1,4 +1,4 @@
-// Sayfa açıldığında storage'dan eski seçimleri yükle
+// Load previous selections from storage when page opens
 document.addEventListener('DOMContentLoaded', async () => {
   const stored = await chrome.storage.local.get('selectedElements');
   if (stored.selectedElements) {
@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     });
   }
 
-  // Select All butonları
+  // Select All buttons
   document.querySelectorAll('.select-all-btn').forEach(button => {
     button.addEventListener('click', (e) => {
       const category = e.target.closest('.category');
@@ -17,32 +17,30 @@ document.addEventListener('DOMContentLoaded', async () => {
       const allChecked = Array.from(checkboxes).every(cb => cb.checked);
 
       checkboxes.forEach(cb => {
-        cb.checked = !allChecked; // hepsi seçiliyse hepsini kaldır, değilse hepsini seç
+        cb.checked = !allChecked; // if all checked, uncheck all; if not, check all
       });
     });
   });
-
-  // Mini Apply butonları
+  // Mini Apply buttons
   document.querySelectorAll('.mini-apply').forEach(button => {
     button.addEventListener('click', async (e) => {
       const category = e.target.closest('.category');
       const selectedElements = Array.from(category.querySelectorAll('input[type="checkbox"]:checked'))
         .map(cb => cb.value);
-
-    
+ 
+      await chrome.storage.local.set({ selectedElements });  
 
       const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
 
       chrome.scripting.executeScript({
         target: { tabId: tab.id },
         func: (tags) => {
-			document.querySelectorAll('.element-badge').forEach(badge => {
-			  if (badge.parentElement && badge.parentElement.style) {
-				badge.parentElement.style.outline = '';
-			  }
-			  badge.remove();
-			});
-
+          document.querySelectorAll('.element-badge').forEach(badge => {
+            if (badge.parentElement && badge.parentElement.style) {
+              badge.parentElement.style.outline = '';
+            }
+            badge.remove();
+          });
 
           tags.forEach(tag => {
             document.querySelectorAll(tag).forEach(el => {
@@ -68,9 +66,10 @@ document.addEventListener('DOMContentLoaded', async () => {
       });
     });
   });
+
 });
 
-// Ana Highlight All butonu
+// Main Highlight All button
 document.getElementById('highlight').addEventListener('click', async () => {
   const selectedElements = Array.from(document.querySelectorAll('input[type="checkbox"]:checked'))
     .map(cb => cb.value);
@@ -89,8 +88,8 @@ document.getElementById('highlight').addEventListener('click', async () => {
     func: (tags) => {
       document.querySelectorAll('.element-badge').forEach(badge => {
         if (badge.parentElement && badge.parentElement.style) {
-		  badge.parentElement.style.outline = '';
-		}
+          badge.parentElement.style.outline = '';
+        }
         badge.remove();
       });
 
