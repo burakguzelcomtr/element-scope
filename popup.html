@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Select Elements</title>
+  <style>
+    body { 
+      font-family: Arial, sans-serif; 
+      margin: 15px; 
+      background-color: #f9f9f9;
+      width: 340px;
+    }
+
+    h3 {
+      text-align: center;
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    .category {
+      background: #fff;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      margin-bottom: 20px;
+      position: relative;
+    }
+
+    .category-title-wrapper {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+
+    .category-title {
+      font-weight: bold;
+      font-size: 15px;
+      color: #555;
+    }
+
+    .select-all-btn {
+      font-size: 12px;
+      padding: 2px 8px;
+      background: #007bff;
+      border: none;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .checkbox-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+
+    .checkbox-label {
+      display: flex;
+      align-items: center;
+      background: #f0f4ff;
+      border-radius: 5px;
+      padding: 5px;
+      font-size: 13px;
+      cursor: pointer;
+    }
+
+    .checkbox-label input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+      margin-right: 6px;
+      accent-color: #007bff;
+    }
+
+    .checkbox-label:hover {
+      background-color: #e0ecff;
+    }
+
+    .mini-apply {
+      width: 100%;
+      background-color: #28a745;
+      border: none;
+      color: white;
+      padding: 6px 0;
+      font-size: 13px;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 5px;
+    }
+
+    .mini-apply:hover {
+      background-color: #218838;
+    }
+
+    #highlight {
+      width: 100%;
+      background-color: #007bff;
+      border: none;
+      color: white;
+      padding: 12px 0;
+      font-size: 16px;
+      border-radius: 10px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    #highlight:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <h3>Highlight Elements</h3>
+
+  <div class="category" data-category="headings">
+    <div class="category-title-wrapper">
+      <div class="category-title">Headings</div>
+      <button class="select-all-btn">Select All</button>
+    </div>
+    <div class="checkbox-grid">
+      <label class="checkbox-label"><input type="checkbox" value="h1"> h1</label>
+      <label class="checkbox-label"><input type="checkbox" value="h2"> h2</label>
+      <label class="checkbox-label"><input type="checkbox" value="h3"> h3</label>
+      <label class="checkbox-label"><input type="checkbox" value="h4"> h4</label>
+      <label class="checkbox-label"><input type="checkbox" value="h5"> h5</label>
+      <label class="checkbox-label"><input type="checkbox" value="h6"> h6</label>
+    </div>
+    <button class="mini-apply">Apply Selected</button>
+  </div>
+
+  <div class="category" data-category="text">
+    <div class="category-title-wrapper">
+      <div class="category-title">Text Elements</div>
+      <button class="select-all-btn">Select All</button>
+    </div>
+    <div class="checkbox-grid">
+      <label class="checkbox-label"><input type="checkbox" value="p"> p</label>
+      <label class="checkbox-label"><input type="checkbox" value="span"> span</label>
+      <label class="checkbox-label"><input type="checkbox" value="b"> b</label>
+      <label class="checkbox-label"><input type="checkbox" value="strong"> strong</label>
+      <label class="checkbox-label"><input type="checkbox" value="i"> i</label>
+      <label class="checkbox-label"><input type="checkbox" value="em"> em</label>
+      <label class="checkbox-label"><input type="checkbox" value="small"> small</label>
+    </div>
+    <button class="mini-apply">Apply Selected</button>
+  </div>
+
+  <div class="category" data-category="media">
+    <div class="category-title-wrapper">
+      <div class="category-title">Media Elements</div>
+      <button class="select-all-btn">Select All</button>
+    </div>
+    <div class="checkbox-grid">
+      <label class="checkbox-label"><input type="checkbox" value="img"> img</label>
+      <label class="checkbox-label"><input type="checkbox" value="figure"> figure</label>
+      <label class="checkbox-label"><input type="checkbox" value="video"> video</label>
+      <label class="checkbox-label"><input type="checkbox" value="iframe"> iframe</label>
+    </div>
+    <button class="mini-apply">Apply Selected</button>
+  </div>
+
+  <div class="category" data-category="structural">
+    <div class="category-title-wrapper">
+      <div class="category-title">Structural Elements</div>
+      <button class="select-all-btn">Select All</button>
+    </div>
+    <div class="checkbox-grid">
+      <label class="checkbox-label"><input type="checkbox" value="div"> div</label>
+      <label class="checkbox-label"><input type="checkbox" value="section"> section</label>
+      <label class="checkbox-label"><input type="checkbox" value="main"> main</label>
+      <label class="checkbox-label"><input type="checkbox" value="aside"> aside</label>
+      <label class="checkbox-label"><input type="checkbox" value="header"> header</label>
+      <label class="checkbox-label"><input type="checkbox" value="footer"> footer</label>
+      <label class="checkbox-label"><input type="checkbox" value="nav"> nav</label>
+    </div>
+    <button class="mini-apply">Apply Selected</button>
+  </div>
+
+  <button id="highlight">Apply All</button>
+
+  <script src="popup.js"></script>
+</body>
+</html>
